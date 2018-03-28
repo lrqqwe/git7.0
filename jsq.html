@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+</head>
+<body>
+   第一个数字:<input type="text" name="text" id="aa" onblur="validate(this.value);"></input>
+	第二个数字:<input type="text" name="text" id="bb" onblur="validate(this.value);"></input>
+        <select id="shi">
+        <input type="button" value="+"></input>
+        <input type="button" value="-"></input>
+        <input type="button" value="*"></input>
+        <input type="button" value="/"></input>
+         </select>
+     
+     
+    <input type="text" id="result" readonly="true">
+    <input type="button" id="btn" value="提交" onclick="de();">
+    <script>
+     
+     
+    function de(){
+        var aa=document.getElementById("aa").value;
+        var bb=document.getElementById("bb").value;
+        var opra=document.getElementById("shi").value;
+ 
+        var result=0;
+        switch(opra) {
+            case "+":
+                result=parseInt(aa)+parseInt(bb);
+                break;
+            case "-":
+                result=parseInt(aa)-parseInt(bb);
+                break;
+            case "*":
+                result=parseInt(aa)*parseInt(bb);
+                break;
+            case "/":
+                if(parseInt(bb)!=0){
+                    result=parseInt(pre)/parseInt(bb);
+                }
+                else{
+                    alert("除数不能为0");
+                    return;
+                }
+                break;
+            default:
+                break;
+        }
+        document.getElementById("result").value=result;
+    }
+    </script>
+</body>
+</html>
